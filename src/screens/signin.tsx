@@ -14,7 +14,7 @@ export default function Signin(){
 
         try{
 
-            const result = await axios.post('http://localhost:8080/api/v1/user/signin',{
+            const result = await axios.post(`${process.env.BACKEND_URL}/user/signin`,{
                 username : name,
                 password
             })

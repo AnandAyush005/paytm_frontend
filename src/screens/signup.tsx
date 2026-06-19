@@ -18,7 +18,7 @@ export default function Signup(){
     
         try {
 
-            let result = await axios.post(`http://localhost:8080/api/v1/user/signup`, {
+            let result = await axios.post(`${process.env.BACKEND_URL}/user/signup`, {
                 username : name,
                 firstName,
                 lastName,
