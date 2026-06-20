@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../../config";
 
 export default function Signin(){
 
@@ -14,7 +15,7 @@ export default function Signin(){
 
         try{
 
-            const result = await axios.post(`${process.env.BACKEND_URL}/user/signin`,{
+            const result = await axios.post(`${BACKEND_URL}/user/signin`,{
                 username : name,
                 password
             })
@@ -55,7 +56,7 @@ export default function Signin(){
                 {password.length < 6 && <p className="text-end text-red-600 text-xs">Password must be greater than 6 letter</p>}
             </div>
 
-            <button className={`w-full bg-neutral-900 p-2 rounded text-white mt-1 ${
+            <button className={`w-full ${submit ? "bg-neutral-500 " : "bg-neutral-900"} p-2 rounded text-white mt-1 ${
             submit ? "cursor-progress" : "cursor-pointer"
         }`}
 
