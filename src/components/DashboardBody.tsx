@@ -4,6 +4,7 @@ import { BACKEND_URL } from "../../config";
 import UserCard from "./userCard.tsx";
 import AddBalanceModal from "./addBalance.tsx";
 import TransferModal from "./TransferModal.tsx";
+import { Link } from "react-router-dom";
 
 interface UserInterface {
   username: string;
@@ -70,12 +71,20 @@ export default function DashboardBody() {
       <div className="text-4xl font-bold flex justify-between w-full">
         <div>Your Balance ₹{balance}</div>
 
-        <button
+       <div>
+         <Link
+          to={'/passbook'}
+          className="p-2 bg-black rounded text-white font-semibold cursor-pointer mr-2"
+        >
+          Passbook
+        </Link>
+         <button
           onClick={() => setAddBalanceOpen(true)}
           className="p-2 bg-black rounded text-white font-semibold cursor-pointer"
         >
           Add Balance
         </button>
+       </div>
       </div>
 
       <div className="mt-4">
